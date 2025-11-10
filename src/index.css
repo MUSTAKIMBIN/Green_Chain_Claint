@@ -23,6 +23,13 @@ li .active {
   text-shadow: #3333334e 1px 1px;
 }
 
+li:hover {
+  color: #f9bd25ea;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
 /* #7aaf4c Primary clolor */
 /* #f9bd25ea Secndery clolor */
 /* #8BC34A Accent clolor */
