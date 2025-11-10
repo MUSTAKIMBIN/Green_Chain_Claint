@@ -63,11 +63,15 @@ const Navber = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-1.5">
-        <Link to={"/logIn"}>
-          <button className="btn">LogIN</button>
-        </Link>
         <Link to={"/register"}>
-          <button className="btn">Register</button>
+          <button className="btn bg-secondary shadow-md shadow-secondary border-none">
+            Register
+          </button>
+        </Link>
+        <Link to={"/logIn"}>
+          <button className="btn bg-accent shadow-md shadow-accent border-none">
+            LogIN
+          </button>
         </Link>
       </div>
     </div>
