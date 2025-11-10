@@ -4,6 +4,14 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
-  --color-secondary: teal;
+  --color-primary: #7aaf4c;
+  --color-secondary: #f9bd25ea;
+  --color-accent: #8bc34a;
 }
+
+/* #7aaf4c Primary clolor */
+/* #f9bd25ea Secndery clolor */
+/* #8BC34A Accent clolor */
+/* #FAFAFA Background clolor */
+/* #333333 Text clolor */
+/* #6C63FF optional clolor */
