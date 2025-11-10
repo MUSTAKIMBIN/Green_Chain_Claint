@@ -5,10 +5,22 @@ const Navber = () => {
   const links = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink>All Crops</NavLink>
+        <NavLink to={"/allCrops"}>All Crops</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/profile"}>Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/addCrops"}>Add Crops</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myPosts"}>My Posts</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myInterests"}>My Interests</NavLink>
       </li>
     </>
   );
@@ -40,7 +52,7 @@ const Navber = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">GreenChain</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

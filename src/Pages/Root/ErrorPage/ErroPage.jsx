@@ -10,7 +10,9 @@ const ErroPage = () => {
         Page Not <span className="text-secondary">Found</span>
       </p>
       <Link to={"/"}>
-        <button className="btn">Home</button>
+        <button className="btn btn-accent text-base font-semibold text-[#333333]">
+          Home
+        </button>
       </Link>
     </div>
   );
