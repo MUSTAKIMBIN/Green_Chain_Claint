@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, Links, NavLink } from "react-router";
+import logo from "../../assets/greenChainLOGO.png";
 
 const Navber = () => {
   const links = (
@@ -52,7 +53,11 @@ const Navber = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">GreenChain</a>
+        <div>
+          <Link to={"/"}>
+            <img src={logo} alt="GreenChainLOgo" />
+          </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
