@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navber = () => {
   const links = (
@@ -57,8 +57,13 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-1.5">
+        <Link to={"/logIn"}>
+          <button className="btn">LogIN</button>
+        </Link>
+        <Link to={"/register"}>
+          <button className="btn">Register</button>
+        </Link>
       </div>
     </div>
   );

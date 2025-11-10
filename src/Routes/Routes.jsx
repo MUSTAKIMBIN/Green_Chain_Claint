@@ -8,6 +8,8 @@ import AddCrops from "../Pages/AddCrops/AddCrops";
 import Profile from "../Pages/Profile/Profile";
 import MyPosts from "../Pages/MyPosts/MyPosts";
 import MyInterestes from "../Pages/MyInterests/MyInterestes";
+import LogIn from "../Pages/LogIN/LogIn";
+import Register from "../Pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "myInterests",
         element: <MyInterestes></MyInterestes>,
+      },
+      {
+        path: "logIn",
+        Component: LogIn,
+      },
+      {
+        path: "register",
+        Component: Register,
       },
     ],
   },
