@@ -55,7 +55,7 @@ const Navber = () => {
         </div>
         <div>
           <Link to={"/"}>
-            <img src={logo} alt="GreenChainLOgo" />
+            <img className="w-5/6 md:w-4/6" src={logo} alt="GreenChainLOgo" />
           </Link>
         </div>
       </div>
