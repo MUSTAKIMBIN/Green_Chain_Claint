@@ -1,8 +1,10 @@
-import React from "react";
-import { Link, Links, NavLink } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink } from "react-router";
 import logo from "../../assets/greenChainLOGO.png";
+import AuthContext from "../../Auth/AuthContext/AuthContext";
 
 const Navber = () => {
+  const { name } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -70,7 +72,7 @@ const Navber = () => {
         </Link>
         <Link to={"/logIn"}>
           <button className="btn bg-accent shadow-md shadow-accent border-none">
-            LogIN
+            LogIN {name}
           </button>
         </Link>
       </div>
