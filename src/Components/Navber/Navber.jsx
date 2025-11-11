@@ -2,9 +2,10 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/greenChainLOGO.png";
 import AuthContext from "../../Auth/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const Navber = () => {
-  const { user } = use(AuthContext);
+  const { user, signOutUser, setUser } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -31,6 +32,17 @@ const Navber = () => {
       )}
     </>
   );
+
+  const handleSignOutUser = () => {
+    signOutUser()
+      .then((res) => {
+        setUser(null);
+        toast("Log Out Successfull");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -70,7 +82,12 @@ const Navber = () => {
       </div>
       <div className="navbar-end gap-1.5">
         {user ? (
-          <button className="btn bg-secondary border-none">Log Out</button>
+          <button
+            onClick={handleSignOutUser}
+            className="btn bg-secondary border-none"
+          >
+            Log Out
+          </button>
         ) : (
           <>
             <Link to={"/register"}>

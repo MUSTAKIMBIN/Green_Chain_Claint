@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AuthContext from "../AuthContext/AuthContext";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../../firebaseConfig/firebase.config";
 
 const googleProvider = new GoogleAuthProvider();
@@ -14,8 +14,14 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+
+  // Sign Out user
+  const signOutUser = () => {
+    return signOut(auth);
+  };
   const authInfo = {
     googelLogIn,
+    signOutUser,
     user,
     setUser,
     loading,
