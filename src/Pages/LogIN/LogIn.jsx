@@ -14,7 +14,7 @@ const LogIn = () => {
       .then((res) => {
         // console.log(res.user);
         setUser(res.user);
-        toast.success("User Created Seccessfully");
+        toast.success("User LogIN Seccessfully");
         navigate("/");
       })
       .catch((err) => {

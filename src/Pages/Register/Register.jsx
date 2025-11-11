@@ -13,7 +13,7 @@ const Register = () => {
       .then((res) => {
         // console.log(res.user);
         setUser(res.user);
-        toast.success("User Created Successfully");
+        toast.success("User LogIN Successfully");
         navigate("/");
       })
       .catch((err) => {
