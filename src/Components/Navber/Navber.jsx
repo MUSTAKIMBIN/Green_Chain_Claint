@@ -4,7 +4,7 @@ import logo from "../../assets/greenChainLOGO.png";
 import AuthContext from "../../Auth/AuthContext/AuthContext";
 
 const Navber = () => {
-  const { name } = use(AuthContext);
+  // const { name } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -66,14 +66,10 @@ const Navber = () => {
       </div>
       <div className="navbar-end gap-1.5">
         <Link to={"/register"}>
-          <button className="btn bg-secondary shadow-md shadow-secondary border-none">
-            Register
-          </button>
+          <button className="btn bg-secondary  border-none">Register</button>
         </Link>
         <Link to={"/logIn"}>
-          <button className="btn bg-accent shadow-md shadow-accent border-none">
-            LogIN {name}
-          </button>
+          <button className="btn bg-accent  border-none">LogIN</button>
         </Link>
       </div>
     </div>

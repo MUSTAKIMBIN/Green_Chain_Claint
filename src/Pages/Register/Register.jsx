@@ -1,9 +1,24 @@
-import React from "react";
+import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 import registerBg from "../../assets/registerBg.jpg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import AuthContext from "../../Auth/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { googelLogIn } = use(AuthContext);
+  const handleGoogleLogIn = () => {
+    googelLogIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("User Created Successfully");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
@@ -77,7 +92,10 @@ const Register = () => {
         <div className="divider text-gray-400">Or Register With</div>
 
         {/* Google Login */}
-        <button className="btn w-full bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 flex items-center justify-center gap-2">
+        <button
+          onClick={handleGoogleLogIn}
+          className="btn w-full bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 flex items-center justify-center gap-2"
+        >
           <FcGoogle className="text-xl" /> Google
         </button>
 

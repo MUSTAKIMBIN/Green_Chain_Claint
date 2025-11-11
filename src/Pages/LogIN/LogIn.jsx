@@ -1,9 +1,26 @@
-import React from "react";
+import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 import logInImg from "../../assets/loginImg.jpg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import AuthContext from "../../Auth/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
+  const navigate = useNavigate();
+  const { googelLogIn } = use(AuthContext);
+
+  const handleGoogleLogIn = () => {
+    googelLogIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("User Created Seccessfully");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
@@ -22,7 +39,10 @@ const LogIn = () => {
         <p className="text-center text-accent mb-6">Hi, Welcome back 👋</p>
 
         {/* Google Login */}
-        <button className="btn w-full mb-4 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 flex items-center justify-center gap-2">
+        <button
+          onClick={handleGoogleLogIn}
+          className="btn w-full mb-4 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 flex items-center justify-center gap-2"
+        >
           <FcGoogle className="text-xl" /> Login with Google
         </button>
 
