@@ -4,7 +4,7 @@ import logo from "../../assets/greenChainLOGO.png";
 import AuthContext from "../../Auth/AuthContext/AuthContext";
 
 const Navber = () => {
-  // const { name } = use(AuthContext);
+  const { user } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -13,18 +13,22 @@ const Navber = () => {
       <li>
         <NavLink to={"/allCrops"}>All Crops</NavLink>
       </li>
-      <li>
-        <NavLink to={"/profile"}>Profile</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/addCrops"}>Add Crops</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/myPosts"}>My Posts</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/myInterests"}>My Interests</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/profile"}>Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/addCrops"}>Add Crops</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/myPosts"}>My Posts</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/myInterests"}>My Interests</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -65,12 +69,20 @@ const Navber = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-1.5">
-        <Link to={"/register"}>
-          <button className="btn bg-secondary  border-none">Register</button>
-        </Link>
-        <Link to={"/logIn"}>
-          <button className="btn bg-accent  border-none">LogIN</button>
-        </Link>
+        {user ? (
+          <button className="btn bg-secondary border-none">Log Out</button>
+        ) : (
+          <>
+            <Link to={"/register"}>
+              <button className="btn bg-secondary  border-none">
+                Register
+              </button>
+            </Link>
+            <Link to={"/logIn"}>
+              <button className="btn bg-accent  border-none">LogIN</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

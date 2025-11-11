@@ -7,11 +7,12 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { googelLogIn } = use(AuthContext);
+  const { googelLogIn, setUser } = use(AuthContext);
   const handleGoogleLogIn = () => {
     googelLogIn()
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
+        setUser(res.user);
         toast.success("User Created Successfully");
         navigate("/");
       })
