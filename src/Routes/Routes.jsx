@@ -3,13 +3,13 @@ import Root from "../Pages/Root/Root";
 import ErroPage from "../Pages/Root/ErrorPage/ErroPage";
 import Home from "../Pages/Home/Home";
 import AllCrops from "../Pages/AllCrops/AllCrops";
-import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AddCrops from "../Pages/AddCrops/AddCrops";
 import Profile from "../Pages/Profile/Profile";
 import MyPosts from "../Pages/MyPosts/MyPosts";
 import MyInterestes from "../Pages/MyInterests/MyInterestes";
 import LogIn from "../Pages/LogIN/LogIn";
 import Register from "../Pages/Register/Register";
+import PrivateRoutes from "../Routes/PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "myInterests",
-        element: <MyInterestes></MyInterestes>,
+        element: (
+          <PrivateRoutes>
+            <MyInterestes></MyInterestes>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "logIn",
