@@ -1,16 +1,34 @@
-# React + Vite
+# Green Chain
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Live link : https://green-chain-farm.netlify.app/
 
-Currently, two official plugins are available:
+### About This Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Green Chain is a web platform designed to bridge the gap between farmers and consumers. Our mission is to create a transparent and efficient marketplace where farmers can showcase their crops and consumers can directly express their interest in purchasing fresh, high-quality produce.
 
-## React Compiler
+#### With Green Chain, farmers can:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Share detailed information about their crops, including type, quantity, price, and location.
+- Reach a wider audience of potential buyers without intermediaries.
 
-## Expanding the ESLint configuration
+#### Consumers can:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Explore a variety of crops based on type, location, and availability.
+
+- Connect directly with farmers to make purchases, ensuring freshness and supporting local agriculture.
+
+Green Chain aims to empower farmers, promote sustainable farming, and provide consumers with easy access to healthy, farm-fresh produce. By connecting people directly to the source, we foster a community of trust, transparency, and green growth.
+
+### Features
+
+- Farmer Listings: Farmers can post detailed information about their crops, including type, price, quantity, location, and images.
+
+- Direct Consumer Connection: Consumers can directly express interest in crops and contact farmers without middlemen.
+
+- Crop Search & Filters: Easily find crops by type, location, or availability for faster decision-making.
+
+- Transparent Marketplace: Prices, quantities, and crop details are clearly displayed for informed buying and selling.
+
+- Responsive Design: Works seamlessly across desktops, tablets, and mobile devices.
+
+- Secure Data Handling: Ensures user and crop information is stored safely with secure connections.
