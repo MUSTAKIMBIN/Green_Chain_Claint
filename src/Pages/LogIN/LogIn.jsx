@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import logInImg from "../../assets/loginImg.jpg";
 import { Link, useNavigate } from "react-router";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const LogIn = () => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const { googelLogIn, setUser, userLogIn } = use(AuthContext);
 
   const handleGoogleLogIn = () => {

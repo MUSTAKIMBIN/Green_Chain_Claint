@@ -7,7 +7,8 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { googelLogIn, setUser, createUserWithEmail } = use(AuthContext);
+  const { googelLogIn, setUser, createUserWithEmail, updateUserProfile } =
+    use(AuthContext);
   const handleGoogleLogIn = () => {
     googelLogIn()
       .then((res) => {
@@ -31,8 +32,9 @@ const Register = () => {
     // register User
     createUserWithEmail(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         setUser(res.user);
+        updateUserProfile(name, photoURL);
         toast.success("User Created Successfully");
         form.reset();
         navigate("/");
