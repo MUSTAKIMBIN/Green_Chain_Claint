@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const { googelLogIn, setUser } = use(AuthContext);
+  const { googelLogIn, setUser, userLogIn } = use(AuthContext);
 
   const handleGoogleLogIn = () => {
     googelLogIn()
@@ -18,6 +18,24 @@ const LogIn = () => {
         navigate("/");
       })
       .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    userLogIn(email, password)
+      .then((res) => {
+        setUser(res.user);
+        toast.success("LogIn successfull");
+        form.reset();
+        navigate("/");
+      })
+      .then((err) => {
         console.log(err);
       });
   };
@@ -49,38 +67,43 @@ const LogIn = () => {
 
         <div className="divider text-gray-400">or Login with Email</div>
 
-        {/* Email */}
-        <div className="form-control mb-4">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input
-            type="email"
-            placeholder="E.g. johndoe@email.com"
-            className="input input-bordered w-full"
-          />
-        </div>
+        {/* logIn form */}
+        <form onSubmit={handleLogIn}>
+          {/* Email */}
+          <div className="form-control mb-4">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="E.g. johndoe@email.com"
+              className="input input-bordered w-full"
+            />
+          </div>
 
-        {/* Password */}
-        <div className="form-control mb-2">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="input input-bordered w-full"
-          />
-        </div>
+          {/* Password */}
+          <div className="form-control mb-2">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              className="input input-bordered w-full"
+            />
+          </div>
 
-        <div className="flex justify-between items-center mb-4">
-          <a href="#" className="text-sm text-secondary hover:underline">
-            Forgot Password?
-          </a>
-        </div>
+          <div className="flex justify-between items-center mb-4">
+            <a href="#" className="text-sm text-secondary hover:underline">
+              Forgot Password?
+            </a>
+          </div>
 
-        {/* Login Button */}
-        <button className="btn btn-secondary w-full mb-3">Login</button>
+          {/* Login Button */}
+          <button className="btn btn-secondary w-full mb-3">Login</button>
+        </form>
 
         <p className="text-center text-sm text-accent">
           Not registered yet?{" "}
