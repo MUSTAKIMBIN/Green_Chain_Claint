@@ -3,6 +3,7 @@ import Hero from "../../Components/Hero/Hero";
 import LatestCrops from "../../Components/LatestCrops/LatestCrops";
 import HowItWorks from "../../Components/HowItWork/HowItWorks";
 import AgroBlog from "../../Components/AgroBlog/AgroBlog";
+import JoinCommunity from "../../Components/JoinComunity/JoinCommunity";
 
 const Home = () => {
   return (
@@ -15,7 +16,8 @@ const Home = () => {
       <HowItWorks></HowItWorks>
       {/* Agro Blog Section */}
       <AgroBlog></AgroBlog>
-      {/* 2 extra section */}
+      {/*Join Community  section */}
+      <JoinCommunity></JoinCommunity>
     </div>
   );
 };
