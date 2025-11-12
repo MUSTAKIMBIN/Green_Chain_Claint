@@ -27,15 +27,27 @@ const router = createBrowserRouter([
       },
       {
         path: "addCrops",
-        element: <AddCrops></AddCrops>,
+        element: (
+          <PrivateRoutes>
+            <AddCrops></AddCrops>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoutes>
+            <Profile></Profile>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "myPosts",
-        element: <MyPosts></MyPosts>,
+        element: (
+          <PrivateRoutes>
+            <MyPosts></MyPosts>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "myInterests",
