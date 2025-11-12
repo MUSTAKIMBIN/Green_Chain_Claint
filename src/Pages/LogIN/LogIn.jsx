@@ -4,10 +4,12 @@ import logInImg from "../../assets/loginImg.jpg";
 import { Link, useNavigate } from "react-router";
 import AuthContext from "../../Auth/AuthContext/AuthContext";
 import toast from "react-hot-toast";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const { googelLogIn, setUser, userLogIn } = use(AuthContext);
 
   const handleGoogleLogIn = () => {
@@ -84,16 +86,27 @@ const LogIn = () => {
           </div>
 
           {/* Password */}
-          <div className="form-control mb-2">
+          <div className="form-control mb-2 relative">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="input input-bordered w-full"
             />
+            {/* <FaEye /> */}
+            <span
+              onClick={() => setShowPass(!showPass)}
+              className="absolute right-3 top-12 transform -translate-y-1/2 cursor-pointer text-gray-500"
+            >
+              {showPass ? (
+                <FaRegEyeSlash className="text-2xl" />
+              ) : (
+                <FaEye className="text-2xl" />
+              )}
+            </span>
           </div>
 
           <div className="flex justify-between items-center mb-4">
