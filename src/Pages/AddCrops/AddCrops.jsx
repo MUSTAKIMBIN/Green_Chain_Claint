@@ -1,8 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import AuthContext from "../../Auth/AuthContext/AuthContext";
 
 const AddCrops = () => {
+  const { user } = use(AuthContext);
   const navigate = useNavigate();
   const handleAddCrops = (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ const AddCrops = () => {
     const location = form.location.value;
     const imgURL = form.imgURL.value;
 
-    console.log(
+    const newCrops = {
       name,
       cropType,
       price,
@@ -24,10 +26,28 @@ const AddCrops = () => {
       unit,
       description,
       location,
-      imgURL
-    );
+      imgURL,
+      oner: {
+        name: user.displayName,
+        email: user.email,
+      },
+    };
+    console.log(newCrops);
+    fetch(`http://localhost:3000/addCrops`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCrops),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Crops Added Successfully");
+        }
+      });
+
     form.reset();
-    toast.success("Crops Added Successfully");
     // Delay navigation by 2 seconds
     setTimeout(() => {
       navigate("/myPosts");
