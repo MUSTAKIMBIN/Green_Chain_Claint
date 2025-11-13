@@ -10,30 +10,30 @@ const AddCrops = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const cropType = form.cropType.value;
-    const price = form.price.value;
-    const quantity = form.quantity.value;
+    const type = form.cropType.value;
+    const pricePerUnit = form.price.value;
+    const estimatedQuantity = form.quantity.value;
     const unit = form.unit.value;
     const description = form.description.value;
     const location = form.location.value;
-    const imgURL = form.imgURL.value;
+    const image = form.imgURL.value;
 
     const newCrops = {
       name,
-      cropType,
-      price,
-      quantity,
+      type,
+      pricePerUnit,
+      estimatedQuantity,
       unit,
       description,
       location,
-      imgURL,
+      image,
       oner: {
         name: user.displayName,
         email: user.email,
       },
     };
     console.log(newCrops);
-    fetch(`http://localhost:3000/addCrops`, {
+    fetch(`http://localhost:3000/crops`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
