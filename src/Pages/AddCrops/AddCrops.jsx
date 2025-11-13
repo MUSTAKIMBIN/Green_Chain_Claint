@@ -17,7 +17,8 @@ const AddCrops = () => {
     const description = form.description.value;
     const location = form.location.value;
     const image = form.imgURL.value;
-
+    parseInt(pricePerUnit);
+    parseInt(estimatedQuantity);
     const newCrops = {
       name,
       type,
@@ -43,6 +44,7 @@ const AddCrops = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          newCrops._id = data.insertedId;
           toast.success("Crops Added Successfully");
         }
       });

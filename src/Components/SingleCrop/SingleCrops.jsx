@@ -12,11 +12,12 @@ const SingleCrops = ({ crop }) => {
           <span className="font-medium">Type:</span> {crop.type}
         </p>
         <p className="text-sm text-gray-600">
-          <span className="font-medium">Price:</span> {crop.price} / {crop.unit}
+          <span className="font-medium">Price:</span> ৳ {crop.pricePerUnit} /{" "}
+          {crop.unit}
         </p>
         <p className="text-sm text-gray-600">
           <span className="font-medium">Quantity:</span>{" "}
-          {crop.estimated_quantity}
+          {crop.estimatedQuantity}
         </p>
         <p className="text-sm text-gray-600">
           <span className="font-medium">Location:</span> {crop.location}
