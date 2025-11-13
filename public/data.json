@@ -82,7 +82,7 @@
   {
     "name": "Maize (Corn)",
     "type": "Grain",
-    "price per unit": 22,
+    "pricePerUnit": 22,
     "unit": "kg",
     "estimatedQuantity": 18000,
     "description": "Yellow maize kernels grown on large acreage, suitable for human consumption and animal feed.",
