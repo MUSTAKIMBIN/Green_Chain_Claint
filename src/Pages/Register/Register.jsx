@@ -9,6 +9,7 @@ import { FaEye } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState(" ");
   const [showPass, setShowPass] = useState(false);
   const { googelLogIn, setUser, createUserWithEmail, updateUserProfile } =
     use(AuthContext);
@@ -32,6 +33,20 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
     console.log(name, email, password, photoURL);
+
+    // chaecked password validation
+    if (!/[A-Z]/.test(password)) {
+      return setError("Password must contain an uppercase letter.");
+    }
+
+    if (!/[a-z]/.test(password)) {
+      return setError("Password must contain a lowercase letter.");
+    }
+
+    if (password.length < 6) {
+      return setError("Password must be at least 6 characters long.");
+    }
+
     // register User
     createUserWithEmail(email, password)
       .then((res) => {
@@ -129,6 +144,11 @@ const Register = () => {
 
           {/* Register Button */}
           <button className="btn btn-secondary w-full mb-4">Register</button>
+          {error && (
+            <p className="text-red-700 text-sm font-medium rounded-md border border-red-700 py-2 px-1.5 my-1.5 bg-red-200 ">
+              {error}
+            </p>
+          )}
         </form>
 
         <div className="divider text-gray-400">Or Register With</div>

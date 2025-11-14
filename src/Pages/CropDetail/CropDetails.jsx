@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import AuthContext from "../../Auth/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 // CropDetails.jsx
 // - Shows full crop information
@@ -73,11 +74,11 @@ const CropDetails = () => {
   async function handleSubmitInterest(e) {
     e.preventDefault();
     if (!user) return navigate("/login");
-    if (quantity < 1) return alert("Quantity must be at least 1");
+    if (quantity < 1) return toast("Quantity must be at least 1");
     if (!crop) return;
-    if (isOwner) return alert("Owners cannot send interest to their own crop");
+    if (isOwner) return toast("Owners cannot send interest to their own crop");
     if (userAlreadySent)
-      return alert("You've already sent an interest for this crop.");
+      return toast("You've already sent an interest for this crop.");
 
     setConfirmOpen(false);
     setSubmitting(true);
@@ -111,10 +112,10 @@ const CropDetails = () => {
       setCrop(updatedCrop);
       setMessage("");
       setQuantity(1);
-      alert("Interest submitted successfully.");
+      toast.success("Interest submitted successfully.");
     } catch (err) {
       console.error(err);
-      alert("Error submitting interest: " + err.message);
+      toast("Error submitting interest: " + err.message);
     } finally {
       setSubmitting(false);
     }
