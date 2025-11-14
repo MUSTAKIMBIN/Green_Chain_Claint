@@ -5,6 +5,8 @@ import AuthContext from "../../Auth/AuthContext/AuthContext";
 const MyInterestes = () => {
   const [interests, setInterests] = useState([]);
   const { user } = use(AuthContext);
+  const [sortField, setSortField] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
   console.log(interests);
 
@@ -26,6 +28,33 @@ const MyInterestes = () => {
 
     fetchInterests();
   }, []);
+
+  // Sorting function
+  const handleSort = (field) => {
+    let order = "asc";
+    if (sortField === field && sortOrder === "asc") order = "desc";
+
+    const sorted = [...interests].sort((a, b) => {
+      if (field === "quantity") {
+        return order === "asc"
+          ? a.quantity - b.quantity
+          : b.quantity - a.quantity;
+      } else {
+        const valA = a[field].toLowerCase();
+        const valB = b[field].toLowerCase();
+        if (valA < valB) return order === "asc" ? -1 : 1;
+        if (valA > valB) return order === "asc" ? 1 : -1;
+        return 0;
+      }
+    });
+
+    setInterests(sorted);
+    setSortField(field);
+    setSortOrder(order);
+  };
+
+  if (loading) return <div className="text-center mt-10">Loading...</div>;
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">My Interests</h1>
@@ -33,11 +62,51 @@ const MyInterestes = () => {
         <table className="table table-zebra w-full">
           <thead>
             <tr>
-              <th>Crop Name</th>
-              <th>Owner</th>
-              <th>Quantity Requested</th>
+              <th
+                onClick={() => handleSort("cropName")}
+                className="cursor-pointer"
+              >
+                Crop Name{" "}
+                {sortField === "cropName"
+                  ? sortOrder === "asc"
+                    ? "↑"
+                    : "↓"
+                  : ""}
+              </th>
+              <th
+                onClick={() => handleSort("ownerName")}
+                className="cursor-pointer"
+              >
+                Owner{" "}
+                {sortField === "ownerName"
+                  ? sortOrder === "asc"
+                    ? "↑"
+                    : "↓"
+                  : ""}
+              </th>
+              <th
+                onClick={() => handleSort("quantity")}
+                className="cursor-pointer"
+              >
+                Quantity{" "}
+                {sortField === "quantity"
+                  ? sortOrder === "asc"
+                    ? "↑"
+                    : "↓"
+                  : ""}
+              </th>
               <th>Message</th>
-              <th>Status</th>
+              <th
+                onClick={() => handleSort("status")}
+                className="cursor-pointer"
+              >
+                Status{" "}
+                {sortField === "status"
+                  ? sortOrder === "asc"
+                    ? "↑"
+                    : "↓"
+                  : ""}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +120,7 @@ const MyInterestes = () => {
               interests.map((interest) => (
                 <tr key={interest._id}>
                   <td>{interest.cropName}</td>
-                  <td>{interest?.oner?.name || "Forhad"}</td>
+                  <td>{interest?.oner?.name || "Farhad"}</td>
                   <td>{interest.quantity}</td>
                   <td>{interest.message}</td>
                   <td>
