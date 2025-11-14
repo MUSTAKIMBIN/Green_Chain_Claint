@@ -6,7 +6,7 @@ const MyPosts = () => {
   const [crops, setCrops] = useState([]);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myCrops?email=${user.email}`)
+      fetch(`https://green-chain-server.vercel.app/myCrops?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCrops(data);

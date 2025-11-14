@@ -33,7 +33,7 @@ const CropDetails = () => {
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    fetch(`http://localhost:3000/crops/${id}`)
+    fetch(`https://green-chain-server.vercel.app/crops/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch crop");
         return res.json();
@@ -96,7 +96,7 @@ const CropDetails = () => {
 
       // POST interest to server (server should create an _id and push into crop.interests)
       const res = await fetch(
-        `http://localhost:3000/crops/${crop._id}/interests`,
+        `https://green-chain-server.vercel.app/crops/${crop._id}/interests`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -127,7 +127,7 @@ const CropDetails = () => {
     setUpdatingInterest(true);
     try {
       const res = await fetch(
-        `http://localhost:3000/crops/${crop._id}/interests/${interestId}`,
+        `https://green-chain-server.vercel.app/crops/${crop._id}/interests/${interestId}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },

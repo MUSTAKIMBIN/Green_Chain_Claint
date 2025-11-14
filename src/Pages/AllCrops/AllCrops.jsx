@@ -7,7 +7,7 @@ const AllCrops = () => {
 
   // data fetching
   useEffect(() => {
-    fetch(`http://localhost:3000/crops`)
+    fetch(`https://green-chain-server.vercel.app/crops`)
       .then((res) => res.json())
       .then((data) => setCrops(data))
       .catch((err) => console.error("Error fetching crops:", err));

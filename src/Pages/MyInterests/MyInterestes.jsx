@@ -15,7 +15,7 @@ const MyInterestes = () => {
     const fetchInterests = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/myInterests?email=${user.email}`
+          `https://green-chain-server.vercel.app/myInterests?email=${user.email}`
         ); // replace with your API endpoint
         const data = await res.json();
         setInterests(data);

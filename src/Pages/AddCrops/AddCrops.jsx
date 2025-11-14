@@ -34,7 +34,7 @@ const AddCrops = () => {
       },
     };
     console.log(newCrops);
-    fetch(`http://localhost:3000/crops`, {
+    fetch(`https://green-chain-server.vercel.app/crops`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
