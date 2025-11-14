@@ -1,3 +1,7 @@
+// import { useNavigate } from "react-router";
+
+import { Link } from "react-router";
+
 const SingleCrops = ({ crop }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-200 border border-emerald-100">
@@ -23,12 +27,11 @@ const SingleCrops = ({ crop }) => {
           <span className="font-medium">Location:</span> {crop.location}
         </p>
 
-        <button
-          onClick={() => navigate(`/crop/${crop._id}`)}
-          className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-xl transition"
-        >
-          View Details
-        </button>
+        <Link to={`/cropDetail/${crop._id}`}>
+          <button className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-xl transition">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
